@@ -61,7 +61,9 @@ print(game_images[computer_choice])
 #User win options - 10, 0 2 , 2 1
 #computer win options - 01, 12, 20
 
-if(user_choice==0 and computer_choice==2):
+if(user_choice>2 or user_choice<0):
+    print("Invalid number added")
+elif(user_choice==0 and computer_choice==2):
     print("You win")
 elif(computer_choice==0 and user_choice==2):
     print("You lose")
@@ -71,5 +73,3 @@ elif(computer_choice> user_choice):
     print("You lose")
 elif(computer_choice==user_choice):
     print("It's a draw")
-elif(user_choice>2 or user_choice<0):
-    print("Invalid number added")
