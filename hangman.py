@@ -1,6 +1,7 @@
 # Generate random word, create as many blanks as the number of letters in the word, initalize the number of lives
 # ask the user to guess a letter, check if letter is present in the word, if present replace blanks with the letter, check if the blanks are over if yes, they won
 # if letter is guessed wrong, deduct a life, check if the no of lives have been exhausted, if exhausted lose.
+
 import random
 
 def read_words_from_file():
@@ -12,6 +13,62 @@ def read_words_from_file():
     return words
 
 def hangMan():
+  stages = ['''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
   word_list = read_words_from_file()
   chosen_word = word_list[random.randint(0,len(word_list)-1)]
   blank_word = ['-']*len(chosen_word)
@@ -36,6 +93,7 @@ def hangMan():
     else:
         lives-=1
         print(f"You guessed wrong! You have {lives} lives left ")
+        print(stages[lives])
         if(lives==0):
             return "Sorry but you lost the game!"
     
